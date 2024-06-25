@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linktree-like Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto dari Google Fonts */
+            background-color: #1a1a1a; /* Warna background gelap */
+            color: #ffffff; /* Warna teks putih */
+            margin: 0;
+            padding: 20px;
+            position: relative; /* Membuat posisi relatif untuk animasi salju */
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px; /* Padding lebih besar */
+            border-radius: 12px; /* Sudut bulat pada container */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Bayangan halus */
+            background-color: rgba(26, 26, 26, 0.9); /* Warna background dengan sedikit transparan */
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px; /* Ruang lebih besar antara judul dan link */
+        }
+        .header h1 {
+            font-size: 36px; /* Ukuran font yang lebih besar */
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Efek bayangan yang lebih tegas */
+        }
+        .profile {
+            width: 120px; /* Lebar gambar profil */
+            height: 120px; /* Tinggi gambar profil */
+            border-radius: 50%; /* Membuat foto profil bundar */
+            overflow: hidden; /* Memastikan foto tidak keluar dari lingkaran */
+            margin: -60px auto 20px; /* Atur margin secara vertikal untuk pusatkan foto profil */
+            border: 4px solid #007bff; /* Garis tepi foto profil */
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.4); /* Bayangan yang lebih lembut */
+        }
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memastikan gambar tetap terlihat baik dalam lingkaran */
+        }
+        .link-item {
+            margin-bottom: 20px; /* Ruang lebih besar antara link-item */
+            text-align: center; /* Pusatkan teks di link-item */
+        }
+        .link-item a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: rgba(0, 123, 255, 0.8); /* Warna default tombol dengan transparansi */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px; /* Bentuk bulat */
+            font-size: 16px; /* Ukuran font yang sedang */
+            transition: background-color 0.3s ease;
+            border: 2px solid transparent; /* Hapus garis tepi */
+        }
+        .link-item a:hover {
+            background-color: rgba(0, 86, 179, 0.8); /* Warna tombol saat dihover dengan transparansi */
+        }
+        .link-item:nth-child(odd) .link-item a {
+            background-color: rgba(255, 99, 71, 0.8); /* Warna berbeda untuk item ganjil */
+        }
+        .link-item:nth-child(odd) .link-item a:hover {
+            background-color: rgba(220, 20, 60, 0.8); /* Warna saat dihover untuk item ganjil */
+        }
+        .link-item:nth-child(even) .link-item a {
+            background-color: rgba(255, 165, 0, 0.8); /* Warna berbeda untuk item genap */
+        }
+        .link-item:nth-child(even) .link-item a:hover {
+            background-color: rgba(255, 140, 0, 0.8); /* Warna saat dihover untuk item genap */
+        }
+        .about-me {
+            text-align: center;
+            margin-top: -10px; /* Atur margin atas negatif untuk membuatnya lebih dekat ke atas */
+            margin-bottom: 20px; /* Ruang lebih besar antara link-item */
+            background-color: rgba(150, 150, 150, 0.3); /* Warna background abu-abu transparan */
+            padding: 10px 30px; /* Padding atas bawah lebih besar */
+            border-radius: 30px; /* Sudut bulat pada background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan pada background */
+            border: 2px solid #9c9c9c; /* Garis tepi untuk membedakan */
+            display: inline-block; /* Agar tombol "About Me" menjadi inline */
+        }
+        .about-me a {
+            color: #ffffff; /* Warna teks link untuk "About Me" */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            font-size: 14px; /* Ukuran font lebih kecil */
+        }
+        .about-me a:hover {
+            color: #f0f0f0; /* Warna teks link saat dihover */
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px; /* Ruang lebih besar antara konten dan footer */
+            padding: 15px 0; /* Padding atas bawah lebih besar */
+            background-color: rgba(26, 26, 26, 0.9); /* Warna background transparan */
+            border-radius: 12px; /* Sudut bulat pada footer */
+        }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+            color: #ffffff; /* Warna teks putih */
+        }
+
+        /* Animasi keyframes untuk salju */
+        @keyframes snow {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(300%);
+                opacity: 0;
+            }
+        }
+
+        /* Pseudoelemen untuk partikel salju */
+        body::before {
+            content: ' '; /* Konten kosong untuk pseudoelemen */
+            position: absolute;
+            top: -10px; /* Memulai dari atas halaman */
+            left: 0;
+            width: 2px; /* Lebar partikel */
+            height: 2px; /* Tinggi partikel */
+            background-color: #ffffff; /* Warna partikel salju */
+            animation: snow 10s linear infinite; /* Animasi salju */
+        }
+
+        /* Dark Mode Button */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .dark-mode-toggle:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #121212; /* Background color for dark mode */
+            color: #ffffff; /* Text color for dark mode */
+        }
+    </style>
+</head>
+<body align="center" oncontextmenu="return false" onclick="play()">
+
+<div class="container">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+        🌙
+    </button>
+
+    <div class="profile">
+        <img src="https://via.placeholder.com/120" alt="Foto Profil">
+    </div>
+
+    <div class="header">
+        <h1>Nama Saya</h1>
+    </div>
+
+    <div class="about-me">
+        <p><a href="https://example.com/about-me" target="_blank">About Me</a></p>
+    </div>
+
+    <div class="link-item">
+        <a href="https://bunuh.me/">
+            🌟 Cek Khodam
+        </a>
+    </div>
+    <div class="link-item">
+        <a href="https://wa.me/6281342111149">
+            🚀 Bot Whatsapp
+        </a>
+    </div>
+    <div class="link-item">
+        <a href="https://instagram.com/zannonly_">
+            ⭐️ Instagram
+        </a>
+    </div>
+    <!-- Add more link items as needed -->
+
+</div>
+
+<audio id="sec" __idm_id__="823202817">      
+<source src="https://sndup.net/rmmg/d" type="audio/mpeg">
+</audio> 
+
+<script>
+    var x = document.getElementById("sec");
+    function play() {
+        x.play();    
+    }
+
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle("dark-mode");
+    }
+</script>
+
+<footer>
+    <p>&copy; 2024 Hak Cipta Irzan. Seluruh Hak Cipta Dilindungi</p>
+</footer>
+
+</body>
+</html>
