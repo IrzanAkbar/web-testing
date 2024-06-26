@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Irzan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Irzan</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Beranda</a>
+            <a href="contact.html" class="nav-link">Hubungi Saya</a>
+            <a href="aboutme.html" class="nav-link">About Me</a>
+        </nav>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="menu-overlay"></div> 
+    </header> 
+
+    <main class="container">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            🌙
+        </button>
+
+        <div class="profile">
+            <img src="myprof.png" alt="Foto Profil Saya">
+        </div>
+
+        <div class="about-me">
+            <h2>Tentang Saya</h2>
+            <p>
+                Hai, saya Andi Irzan Akbar H., seorang pelajar yang penuh semangat dan berdedikasi dari Wajo, Sulawesi Selatan. Saya sedang menikmati masa remaja dengan semangat belajar dan mengeksplorasi dunia baru. 
+            </p>
+
+            <h3>Minat dan Kegiatan</h3>
+            <p>
+                Di luar kegiatan sekolah, saya gemar bermain game, yang membantu saya mengembangkan kemampuan problem-solving dan berpikir kritis. Selain itu, saya juga sangat tertarik dengan dunia pemrograman, terutama pengembangan web. Kode dan algoritma adalah tantangan yang menyenangkan untuk dipecahkan! 
+            </p>
+
+            <h3>Keahlian</h3>
+            <ul>
+                <li>Pemrograman Web (HTML, CSS, JavaScript)</li>
+                <li>Pengembangan Bot WhatsApp (NodeJs)</li>
+                <li>Server Game GTPS (C++) [Sedang Belajar]</li>
+                <!-- Tambahkan keahlian lainnya -->
+            </ul>
+
+            <h3>Pengalaman</h3>
+            <p>
+                Saya memiliki pengalaman dalam mengembangkan bot WhatsApp yang berbasis Node.js, di mana saya mengintegrasikan fitur-fitur pengenalan suara dan respons otomatis. Saya juga telah membuat server game GTZL dan ZLPS menggunakan C++, yang melibatkan pengelolaan database, algoritma, dan optimasi server. 
+            </p>
+
+            <h3>Tujuan</h3>
+            <p>
+                Saya bersemangat untuk terus belajar dan mengembangkan keahlian saya dalam pengembangan web.  Saya ingin menciptakan aplikasi web yang inovatif dan bermanfaat bagi orang lain. 
+            </p>
+
+            <h3>Hubungi Saya</h3>
+            <p>
+                Jika Anda ingin berdiskusi tentang proyek atau hanya ingin menyapa, jangan ragu untuk menghubungi saya melalui email: 
+                <a href="mailto:admin@irzan.us">irzan@example.com</a>
+            </p>
+        </div>
+    </main>
+
+    <div class="button-container">
+        <button class="cool-button" onclick="location.href='subscribe.html'">Berlangganan</button>
+        <button class="cool-button" onclick="location.href='donate.html'">Donasi</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hak Cipta Irzan. Seluruh Hak Cipta Dilindungi</p>
+    </footer>
+    
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+        }
+
+        // Untuk navigasi titik tiga
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const menuOverlay = document.querySelector('.menu-overlay'); // Tambah variabel untuk overlay
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuOverlay.classList.toggle('show'); // Toggle overlay class
+        });
+
+        // Untuk pop-up tooltips
+        const links = document.querySelectorAll('.link');
+        links.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                const tooltip = document.createElement('div');
+                tooltip.classList.add('tooltip');
+                tooltip.textContent = link.dataset.tooltip;
+                document.body.appendChild(tooltip);
+
+                const rect = link.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+                tooltip.style.top = `${rect.bottom + 10}px`;
+            });
+
+            link.addEventListener('mouseout', () => {
+                const tooltip = document.querySelector('.tooltip');
+                if (tooltip) {
+                    document.body.removeChild(tooltip);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

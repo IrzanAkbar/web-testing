@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi - Nama Saya</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <style>
+        /* ... (Sama dengan style di index.html) ... */
+    </style>
+</head>
+<body align="center" oncontextmenu="return false" onclick="play()">
+    <div class="container">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            🌙
+        </button>
+
+        <div class="profile">
+            <img src="https://via.placeholder.com/150" alt="Foto Profil">
+        </div>
+
+        <div class="header">
+            <h1>Donasi</h1>
+        </div>
+
+        <p>Jika Anda ingin mendukung pekerjaan saya, Anda dapat melakukan donasi melalui:</p>
+        
+        <!--  Ganti dengan link donasi Anda -->
+        <div class="button-container">
+            <button onclick="location.href='https://www.paypal.com/donate/?hosted_button_id=YOUR_PAYPAL_DONATE_ID'">Donasi via Paypal</button>
+            <button onclick="location.href='https://ko-fi.com/YOUR_KOFI_USERNAME'">Donasi via Ko-fi</button>
+            <!-- Tambahkan tombol donasi lain jika diperlukan -->
+        </div>
+
+        <div class="button-container">
+            <button onclick="location.href='index.html'">Kembali ke Beranda</button>
+        </div>
+
+    </div>
+
+    <audio id="sec" __idm_id__="823202817">      
+    <source src="https://sndup.net/rmmg/d" type="audio/mpeg">
+    </audio> 
+
+    <script>
+        var x = document.getElementById("sec");
+        function play() {
+            x.play();    
+        }
+
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Hak Cipta Irzan. Seluruh Hak Cipta Dilindungi</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Saya - Nama Saya</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor89SbpQ/W+HvieFl2O+lT90O2+l0w1QwpOa7r2J/luT+Ul7kP3aL79/s=w" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+ <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0; /* Warna latar belakang utama */
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px; /* Atur lebar maksimum container */
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #fff; /* Warna latar belakang container */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 4px solid #007bff; /* Warna border */
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #007bff; /* Warna judul */
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .link-item {
+            margin-bottom: 10px;
+        }
+
+        .link-item a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #007bff; /* Warna tombol */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-item a:hover {
+            background-color: #0056b3; /* Warna hover tombol */
+        }
+
+        .about-me {
+            background-color: #e9ecef; /* Warna latar belakang "About Me" */
+            padding: 10px 30px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-me a {
+            color: #007bff; /* Warna teks "About Me" */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .about-me a:hover {
+            color: #0056b3; /* Warna hover teks "About Me" */
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #f8f9fa; /* Warna latar belakang footer */
+            border-radius: 15px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+
+        /* Dark Mode Style */
+        .dark-mode {
+            background-color: #121212; /* Warna latar belakang dark mode */
+            color: #fff; 
+        }
+
+        .dark-mode .link-item a {
+            background-color: #fff; /* Warna tombol dark mode */
+            color: #007bff; 
+        }
+
+        .dark-mode .link-item a:hover {
+            background-color: #e9ecef; /* Warna hover tombol dark mode */
+        }
+
+        .dark-mode .about-me {
+            background-color: #343a40; /* Warna latar belakang "About Me" dark mode */
+        }
+
+        .dark-mode .about-me a {
+            color: #fff; /* Warna teks "About Me" dark mode */
+        }
+
+        .dark-mode .about-me a:hover {
+            color: #e9ecef; /* Warna hover teks "About Me" dark mode */
+        }
+
+        .dark-mode .dark-mode-toggle {
+            background-color: #fff; /* Warna tombol dark mode */
+        }
+
+        .dark-mode .dark-mode-toggle:hover {
+            background-color: #e9ecef; /* Warna hover tombol dark mode */
+        }
+
+        .dark-mode footer {
+            background-color: #212529; /* Warna latar belakang footer dark mode */
+        }
+
+        .dark-mode footer p {
+            color: #fff; /* Warna teks footer dark mode */
+        }
+
+        /* Tombol Dark Mode */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #007bff; 
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 10; 
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) { 
+            .container {
+                padding: 20px;
+            }
+            .profile {
+                width: 120px;
+                height: 120px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .link-item a {
+                font-size: 0.9rem;
+                padding: 12px 25px;
+            }
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            .profile {
+                width: 100px;
+                height: 100px;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            .link-item a {
+                font-size: 0.8rem;
+                padding: 10px 20px;
+            }
+            .about-me {
+                padding: 8px 20px;
+            }
+        }
+    </style>
+</head>
+<body align="center" oncontextmenu="return false" onclick="play()">
+    <div class="container">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            🌙
+        </button>
+
+        <div class="profile">
+            <img src="https://via.placeholder.com/150" alt="Foto Profil">
+        </div>
+
+        <div class="header">
+            <h1>Hubungi Saya</h1>
+        </div>
+
+        <div class="contact-info">
+            <p>Anda dapat menghubungi saya melalui:</p>
+            <ul>
+                <li>
+                    <div class="link-item">
+                        <a href="mailto:admin@irzan.us"><i class="fas fa-envelope"></i> admin@irzan.us</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="link-item">
+                        <a href="https://wa.me/+6285340827717"><i class="fab fa-whatsapp"></i> +62 853 4082 7717</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="link-item">
+                        <a href="https://instagram.com/zannonly_"><i class="fab fa-instagram"></i> zannonly_</a>
+                    </div>
+                </li>
+                <!-- Tambahkan metode kontak lain jika diperlukan -->
+            </ul>
+        </div>
+
+        <div class="about-me">
+            <a href="index.html">Kembali ke Beranda</a>
+        </div>
+
+    </div>
+
+    <audio id="sec" __idm_id__="823202817">      
+    <source src="https://sndup.net/rmmg/d" type="audio/mpeg">
+    </audio> 
+
+    <script>
+        var x = document.getElementById("sec");
+        function play() {
+            x.play();    
+        }
+
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Hak Cipta Irzan. Seluruh Hak Cipta Dilindungi</p>
+    </footer>
+</body>
+</html>

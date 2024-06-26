@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irzan - Profile saya</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script> 
+    <meta name="description" content="All About Irzan In Here."> 
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PLMTG3KB5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3PLMTG3KB5'); 
+    </script>
+</head>
+<body>
+
+    <header>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav class="nav-links">
+            <a href="contact.html">Hubungi Saya</a> 
+        </nav>
+        <div class="menu-overlay"></div> </header> 
+
+    <main class="container">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+            🌙
+        </button>
+
+        <div class="profile">
+            <img src="myprof.png" alt="Foto Profil Saya">
+        </div>
+
+        <div class="header">
+            <h1>Irzan</h1>
+        </div>
+
+        <div class="about-me">
+            <p><a href="https://example.com/about-me" target="_blank">About Me</a></p>
+        </div>
+
+        <div class="links">
+            <a href="https://bunuh.me/" class="link-item">
+                🌟 Cek Khodam
+            </a>
+            <a href="https://wa.me/6281342111149" class="link-item">
+                🚀 Bot Whatsapp
+            </a>
+            <a href="https://instagram.com/zannonly_" class="link-item">
+                ⭐️ Instagram
+            </a>
+            <!-- Add more link items as needed -->
+        </div>
+    </main>
+
+    <div class="button-container">
+        <button class="cool-button" onclick="location.href='subscribe.html'">Berlangganan</button>
+        <button class="cool-button" onclick="location.href='donate.html'">Donasi</button>
+    </div>
+
+    <audio id="sec" autoplay loop> 
+        <source src="https://sndup.net/rmmg/d" type="audio/mpeg"> 
+    </audio> 
+
+    <footer>
+        <p>&copy; 2024 Hak Cipta Irzan. Seluruh Hak Cipta Dilindungi</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle("dark-mode");
+        }
+
+        // Untuk navigasi titik tiga
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const menuOverlay = document.querySelector('.menu-overlay'); // Tambah variabel untuk overlay
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+            menuOverlay.classList.toggle('show'); // Toggle overlay class
+        });
+    </script>
+
+</body>
+</html>
